@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+
+/* eslint-disable node/no-missing-require */
+/* eslint-disable node/no-unpublished-require */
+/* eslint-disable @typescript-eslint/no-var-requires */
+
+const {name, version} = require('../package.json');
+
+const argv = require('yargs')
+  .scriptName(name)
+  .version(version)
+  .usage('$0 [args]')
+  .option('privateKeyFile', {
+    alias: 'k',
+    describe: 'The private key file to use for https'
+  })
+  .option('certFile', {
+    alias: 'c',
+    describe: 'The certificate file to use for https'
+  })
+  .option('port', {
+    alias: 'p',
+    default: 0,
+    describe: 'The port to listen on'
+  })
+  .option('host', {
+    alias: 'h',
+    default: 'localhost',
+    describe: 'The host to listen on'
+  })
+  .requiresArg(['privateKeyFile', 'certFile'])
+  .help()
+  .argv;
+
+
+
+const {default: init} = require('../dist/index');
+
+init({
+  keyPath: argv.privateKeyFile,
+  certPath: argv.certFile,
+  host: argv.host,
+  port: argv.port,
+});
