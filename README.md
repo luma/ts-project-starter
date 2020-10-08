@@ -55,7 +55,7 @@ You also need automake install (`brew install make` should do the trick on Mac O
 
 Rather than being a generator like `create-react-app` the idea is that you take
 this code and make it your own. This does make it a little more opinionated,
-but I've done my best to document those opinions as I go alone so you'll know
+but I've done my best to document those opinions as I go along so you'll know
 when I'm dragging you along for the ride.
 
 To make the starter your own you should:
@@ -120,13 +120,13 @@ news is that your new backend is a little more secure out of the box.
 > SSL certificate for local dev, as opposed to one signed by one of the official
 > Certificate Authority.
 >
-> You can tell your browser to perminantly accept that certicate for localhost,
+> You can tell your browser to permanently accept that certicate for localhost,
 > but you must remember to replace it for any use outside of local development.
 >
 > You can find the self-signed certificate and private key in `./config/`.
 
-1. <a name="footnote-1"></a> Well...it doesn't but it does. Some members of the working group wanted 
-it to be, others didn't. So the spec says it isn't required, but most 
+1. <a name="footnote-1"></a> Well...it doesn't but it does. Some members of the working group wanted
+it to be, others didn't. So the spec says it isn't required, but most
 implementations don't support unencrypted HTTP2. You can read a bit more about
 this on [Mandatory encryption on HTTP2](https://en.wikipedia.org/wiki/HTTP/2#Mandatory_encryption_computational_cost_and_certificate_availability)
 
