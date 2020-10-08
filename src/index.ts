@@ -1,9 +1,9 @@
 import {readFileSync} from 'fs';
 
-import createAndListen from './server';
+import createAndListen from './http2/server';
 import makeAppHandler from './app';
-import applyLoggingToRequestHandler, { makeRequestIDGenerator } from './applyLoggingToRequestHandler';
-import makeLog from './makeLog';
+import applyLoggingToRequestHandler, { makeRequestIDGenerator } from './http2/applyLoggingToRequestHandler';
+import makeLog from './logging/makeLog';
 
 export interface Options {
   keyPath: string;

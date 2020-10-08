@@ -1,6 +1,6 @@
 import {Http2ServerRequest, Http2ServerResponse} from 'http2';
 import { Logger } from 'pino';
-import { OnRequestHandler } from './server';
+import { OnRequestHandler } from './http2/server';
 
 function makeAppHandler(log: Logger): OnRequestHandler {
   return (

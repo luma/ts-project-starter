@@ -9,7 +9,8 @@ This exists because I'm tired of having to recreate this everytime ;-)
 * Setup for [Typescript](https://www.typescriptlang.org/).
 * Uses [Babel 7](https://babeljs.io/) for Transpilation.
 * [Jest](https://jestjs.io/) for tests and coverage reporting.
-* [Eslint](https://eslint.org/)+[Prettier](https://prettier.io/) for linting and style of ts/js files.
+* [Eslint](https://eslint.org/)+[Prettier](https://prettier.io/) for
+linting and style of ts/js files.
 * Markdown linting of README.md.
 * The code itself is for a simple "Hello World" HTTP2 Server.
 * Logging via [Pino](https://getpino.io/).
