@@ -125,7 +125,7 @@ news is that your new backend is a little more secure out of the box.
 >
 > You can find the self-signed certificate and private key in `./config/`.
 
-<a name="footnote-1">1</a>: Well...it doesn't but it does. Some members of the working group wanted 
+1. <a name="footnote-1"></a> Well...it doesn't but it does. Some members of the working group wanted 
 it to be, others didn't. So the spec says it isn't required, but most 
 implementations don't support unencrypted HTTP2. You can read a bit more about
 this on [Mandatory encryption on HTTP2](https://en.wikipedia.org/wiki/HTTP/2#Mandatory_encryption_computational_cost_and_certificate_availability)
