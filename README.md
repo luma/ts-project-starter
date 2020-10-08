@@ -42,6 +42,7 @@ build system.
 
 - commmit hooks to enforce that tests and linting checks pass
 - Proper test coverage
+- CI pipeline with Github Actions
 
 ## Prerequisites
 
