@@ -73,7 +73,6 @@ like the following
 
 ``` shell
 git clone --depth=1 --branch=main https://github.com/luma/ts-project-starter.git
-mv ts-project-starter myAwesomeProjectName
 ```
 
 ### Rename the relevant parts
