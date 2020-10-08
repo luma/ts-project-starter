@@ -4,6 +4,8 @@ ESLINT = node_modules/.bin/eslint
 JEST = node_modules/.bin/jest
 MARKDOWNLINT = node_modules/.bin/markdownlint
 
+ESLINT_CONFIG = -c .eslintrc.cjs --ext .js,.jsx,.ts,.tsx
+
 SRC = $(wildcard src/*.ts)
 DIST = $(SRC:src/%.ts=dist/%.js)
 
@@ -31,7 +33,11 @@ watch:
 lint: lint-src lint-readme
 
 lint-src: ${SRC} .eslintrc.cjs .eslintignore
-	${ESLINT} src -c .eslintrc.cjs --ext .js,.jsx,.ts,.tsx
+	${ESLINT} src ${ESLINT_CONFIG}
+
+lint-fix-src: ${SRC} .eslintrc.cjs .eslintignore
+	${ESLINT} src --fix ${ESLINT_CONFIG}
+
 
 lint-readme: README.md
 	${MARKDOWNLINT} -f README.md
@@ -40,4 +46,4 @@ lint-readme: README.md
 clean:
 	rm -rf dist
 
-.PHONY: clean lint lint-src lint-readme test watch check-types
+.PHONY: clean lint lint-src lint-fix-src lint-readme test watch check-types
