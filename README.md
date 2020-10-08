@@ -53,12 +53,12 @@ You also need automake install (`brew install make` should do the trick on Mac O
 
 ## Initial setup
 
-Rather than being a generator like `create-react-app` this starter is designed
-to be your starting point directly. This does make it a little more opinionated,
+Rather than being a generator like `create-react-app` the idea is that you take
+this code and make it your own. This does make it a little more opinionated,
 but I've done my best to document those opinions as I go alone so you'll know
 when I'm dragging you along for the ride.
 
-To make the starter your own you should
+To make the starter your own you should:
 
 1. Clone it.
 2. Rename the relevant parts.
