@@ -21,7 +21,11 @@ check-types: ${SRC} tsconfig.json
 	${TSC}
 
 # Reinstall node modules when our deps are updated
-node_modules: package.json
+node_modules: yarn.lock
+	$(MAKE) clean
+	yarn install --frozen-lockfile
+
+yarn.lock: package.json
 	yarn install
 
 test: ${SRC} jest.config.mjs
