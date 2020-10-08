@@ -6,7 +6,7 @@ MARKDOWNLINT = node_modules/.bin/markdownlint
 
 ESLINT_CONFIG = -c .eslintrc.cjs --ext .js,.jsx,.ts,.tsx
 
-SRC = $(shell find src -name '*.ts')
+SRC = $(shell find src -name '*.ts' -and -not -name '*.test.ts')
 DIST = $(SRC:src/%.ts=dist/%.js)
 
 all: node_modules check-types lint dist

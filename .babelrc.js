@@ -1,5 +1,5 @@
 module.exports = {
-  "presets": [
+  presets: [
     [
       "@babel/preset-env",
       {
@@ -11,8 +11,12 @@ module.exports = {
     "@babel/preset-typescript"
   ],
 
-  "plugins": [
+  plugins: [
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-object-rest-spread"
+  ],
+
+  ignore: [
+    "**/*.test.ts"
   ]
 };
