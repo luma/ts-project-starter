@@ -18,7 +18,6 @@ This exists because I'm tired of having to recreate this everytime ;-)
 
 * commmit hooks to enforce that tests and linting checks pass
 * Proper test coverage
-* Test coverage reporting
 
 ## Initial setup
 
