@@ -8,15 +8,17 @@ const {name, version} = require('../package.json');
 
 const argv = require('yargs')
   .scriptName(name)
-  .version(version)
+  .version(`${name} ${version}`)
   .usage('$0 [args]')
   .option('privateKeyFile', {
     alias: 'k',
-    describe: 'The private key file to use for https'
+    describe: 'The private key file to use for https',
+    demandOption: true,
   })
   .option('certFile', {
     alias: 'c',
-    describe: 'The certificate file to use for https'
+    describe: 'The certificate file to use for https',
+    demandOption: true,
   })
   .option('port', {
     alias: 'p',
@@ -31,8 +33,6 @@ const argv = require('yargs')
   .requiresArg(['privateKeyFile', 'certFile'])
   .help()
   .argv;
-
-
 
 const {default: init} = require('../dist/index');
 
