@@ -112,8 +112,9 @@ You should now be able to turn on the server with `yarn start:dev`.
 
 You can visit your new backend on `https://localhost:3004/`. Note that the
 backend is `https` only, this is because
-[HTTP2](https://en.wikipedia.org/wiki/HTTP/2) is https only<sup>[1](#footnote-1)</sup>. The good
-news is that your new backend is a little more secure out of the box.
+[HTTP2](https://en.wikipedia.org/wiki/HTTP/2) is https only
+<sup>[1](#footnote-1)</sup>. The good news is that your new backend is a little
+more secure out of the box.
 
 > **Note** You will see a warning about the certificate that we're using when
 > you view the endpoint in your browser. This is because we're using a self-signed
@@ -125,10 +126,11 @@ news is that your new backend is a little more secure out of the box.
 >
 > You can find the self-signed certificate and private key in `./config/`.
 
-1. <a name="footnote-1"></a> Well...it doesn't but it does. Some members of the working group wanted
-it to be, others didn't. So the spec says it isn't required, but most
-implementations don't support unencrypted HTTP2. You can read a bit more about
-this on [Mandatory encryption on HTTP2](https://en.wikipedia.org/wiki/HTTP/2#Mandatory_encryption_computational_cost_and_certificate_availability)
+1. <a name="footnote-1"></a> Well...it doesn't but it does. Some members of
+the working group wanted it to be, others didn't. So the spec says it isn't
+required, but most implementations don't support unencrypted HTTP2. You can
+read a bit more about this on
+[Mandatory encryption on HTTP2](https://en.wikipedia.org/wiki/HTTP/2#Mandatory_encryption_computational_cost_and_certificate_availability).
 
 
 ### Where to from here

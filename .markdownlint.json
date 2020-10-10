@@ -1,0 +1,13 @@
+{
+  "line-length": 80,
+  "ul-style": {
+    "style": "dash"
+  },
+  "no-inline-html": {
+    "allowed_elements": [
+      "a",
+      "sup"
+    ]
+  },
+  "no-multiple-blanks": false
+}
