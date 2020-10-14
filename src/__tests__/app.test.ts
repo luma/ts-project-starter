@@ -1,13 +1,28 @@
 import { Http2ServerRequest, Http2ServerResponse, OutgoingHttpHeaders } from "http2";
 import makePinoLogger, { destination } from 'pino';
 
-import makeAppHandler from "../app";
+import makeAppHandler, {AppRouter} from "../app";
 
 type WrittenResponse = {
   statusCode: number;
   headers: OutgoingHttpHeaders
   data: (string | Uint8Array)[];
 };
+
+function makeMockRouter<Context>(): AppRouter<Context> {
+  return {
+    lookup(
+      req: Http2ServerRequest,
+      res: Http2ServerResponse,
+    ): void {
+      res.writeHead(200, {
+        'content-type': 'text/html; charset=utf-8',
+      });
+
+      res.end('<h1>Hello World</h1>');
+    },
+  };
+}
 
 function makeMockRequest(resp: Partial<Http2ServerRequest> = {}): Http2ServerRequest {
   return {
@@ -25,7 +40,7 @@ function makeMockResponse(): [Http2ServerResponse, WrittenResponse] {
   const resp: Http2ServerResponse = {
     writeHead(statusCode: number, headers?: OutgoingHttpHeaders): Http2ServerResponse {
       written.statusCode = statusCode;
-      
+
       if (headers) {
         written.headers = headers;
       }
@@ -35,7 +50,7 @@ function makeMockResponse(): [Http2ServerResponse, WrittenResponse] {
 
     end(data: string | Uint8Array, callback?: () => void): void {
       written.data.push(data);
-      
+
       if (callback) {
         callback();
       }
@@ -50,9 +65,10 @@ test('should set the response status to 200', () => {
   const [resp, respWritten] = makeMockResponse();
 
   const log = makePinoLogger(destination('/dev/null'));
-  const appHandler = makeAppHandler(log);
+  const router = makeMockRouter();
+  const appHandler = makeAppHandler(router, log);
   appHandler(req, resp);
-  
+
   expect(respWritten.statusCode).toBe(200);
 })
 
@@ -61,7 +77,8 @@ test('should set the response content-type to text/html', () => {
   const [resp, respWritten] = makeMockResponse();
 
   const log = makePinoLogger(destination('/dev/null'));
-  const appHandler = makeAppHandler(log);
+  const router = makeMockRouter();
+  const appHandler = makeAppHandler(router, log);
   appHandler(req, resp);
 
   expect(respWritten.headers['content-type']).toBe('text/html; charset=utf-8');
@@ -72,7 +89,8 @@ test('should return the expected response body', () => {
   const [resp, respWritten] = makeMockResponse();
 
   const log = makePinoLogger(destination('/dev/null'));
-  const appHandler = makeAppHandler(log);
+  const router = makeMockRouter();
+  const appHandler = makeAppHandler(router, log);
   appHandler(req, resp);
 
   expect(respWritten.data).toStrictEqual(['<h1>Hello World</h1>']);
