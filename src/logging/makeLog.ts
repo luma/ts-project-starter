@@ -13,12 +13,12 @@ export default function makeLog(): Logger {
   // in periods of low activity
   //
   // Note: the unref() basically tells Node not to block shutdown
-  //       of our process if the setInterval below is still scheduled 
-  //       to run. 
+  //       of our process if the setInterval below is still scheduled
+  //       to run.
   //
-  // Node will usually wait for all queued timers to run before terminimating. 
-  // As we want to the timer below to keep running until we shutdown we're 
-  // politely telling Node to not wait for it and to just shut down when 
+  // Node will usually wait for all queued timers to run before terminimating.
+  // As we want to the timer below to keep running until we shutdown we're
+  // politely telling Node to not wait for it and to just shut down when
   // it wants to.
   //
   setInterval(function () {
